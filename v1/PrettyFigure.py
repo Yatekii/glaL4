@@ -34,25 +34,17 @@ class PrettyFigure:
     def _png_(self):
         png_data = self._figure_data('png')
         figure_location = 'images/figures/{0}.png'.format(self.label.split(':')[1])
-        if figure_location != self.location_png:
-            if self.location_png != None:
-                os.remove(self.location_png)
-            self.location_png = figure_location
-            png = open(figure_location, 'wb')
-            png.write(png_data)
-            png.close()
+        png = open(figure_location, 'wb')
+        png.write(png_data)
+        png.close()
         return png_data
 
     def _pdf_(self):
         pdf_data = self._figure_data('pdf')
         figure_location = 'images/figures/{0}.pdf'.format(self.label.split(':')[1])
-        if figure_location != self.location_pdf:
-            if self.location_pdf != None:
-                os.remove(self.location_pdf)
-            self.location_pdf = figure_location
-            pdf = open(figure_location, 'wb')
-            pdf.write(pdf_data)
-            pdf.close()
+        pdf = open(figure_location, 'wb')
+        pdf.write(pdf_data)
+        pdf.close()
         return pdf_data
 
     def _repr_html_(self):
