@@ -37,6 +37,7 @@ class PrettyFigure:
         png = open(figure_location, 'wb')
         png.write(png_data)
         png.close()
+        self.location_png = figure_location
         return png_data
 
     def _pdf_(self):
@@ -45,6 +46,7 @@ class PrettyFigure:
         pdf = open(figure_location, 'wb')
         pdf.write(pdf_data)
         pdf.close()
+        self.location_pdf = figure_location
         return pdf_data
 
     def _repr_html_(self):
