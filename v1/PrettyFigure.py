@@ -58,11 +58,12 @@ class PrettyFigure:
 
     def _repr_latex_(self):
         self._pdf_()
-        latex_data = r'''\begin{figure*}[!htbp]
-    \begin{center}\adjustimage{max size={0.9\linewidth}{0.4\paperheight}}{%s}\end{center}
+        latex_data = r'''\begin{figure}[H]
+    \center
+    \includegraphics{%s}
     \caption{%s}
     \label{%s}
-\end{figure*}
+\end{figure}
         ''' % (self.location_pdf, self.caption, self.label)
         return latex_data
 

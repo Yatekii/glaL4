@@ -10,6 +10,7 @@
 \usepackage{gensymb}
 \usepackage{float}
 \usepackage{longtable}
+\usepackage{graphicx}
 
 \AtBeginDocument{
 \heavyrulewidth=.08em

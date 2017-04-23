@@ -55,7 +55,13 @@ class PrettyTable(list):
                     rows.append(" & ".join(map(str, row)))
                 rows.append("\\\\\\addlinespace \n")
             else:
-                rows[(rows_done % self.entries_per_column) * 2] += " & " + " & ".join(map(('{0:.' + str(self.significant_digits) + 'f}').format, row))
+                if isinstance(row, str):
+                    rows[(rows_done % self.entries_per_column) * 2] += " & " + " & ".join(row)
+                elif isinstance(row, float):
+                    rows[(rows_done % self.entries_per_column) * 2] += " & " + " & ".join(map(('{0:.' + str(self.significant_digits) + 'f}').format, row))
+                else:
+                    rows[(rows_done % self.entries_per_column) * 2] += " & " + " & ".join(map(str, row))
+                rows.append("\\\\\\addlinespace \n")
             rows_done += 1
         latex.extend(rows)
         latex.append('\\\\\\bottomrule\\caption{%s}\\\\\\label{%s}' % (self.caption, self.label))
