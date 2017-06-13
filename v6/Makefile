@@ -1,4 +1,4 @@
-TARGET := application
+TARGET := main
 BUILD := build
 
 all: build
